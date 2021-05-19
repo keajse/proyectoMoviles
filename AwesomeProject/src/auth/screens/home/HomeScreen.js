@@ -10,6 +10,10 @@ const HomeScreen = ({navigation}) => {
     navigation.navigate('Login');
   }
 
+  const goToRegister =() => {
+    navigation.navigate('Register');
+  }
+
   return <View style={Styles.container}>
     <StatusBar backgroundColor={Colors.primaryColor}></StatusBar>
     <LinearGradient colors={[Colors.primaryColor, Colors.secondaryColor]} style={Styles.icontainer}>
@@ -17,6 +21,7 @@ const HomeScreen = ({navigation}) => {
       <Text style={Styles.title}>Paz y bien</Text>      
     </LinearGradient>   
     <Button title="Go to login" onPress={()=>goToLogin()}></Button> 
+    <Button title="Go to Register" onPress={()=>goToRegister()}></Button> 
 
   </View >
 }

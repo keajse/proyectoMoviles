@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const Styles = StyleSheet.create({
+const RegisterStyles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
@@ -43,22 +43,7 @@ const Styles = StyleSheet.create({
         fontSize: 18,
         color: "#FFFFFF",
     
-    },
-    loginButton:{
-        width: Dimensions.get("screen").width*0.85,
-        padding: 20,       
-        borderRadius: 50,
-        marginTop: 40,
-        alignItems: "center",
-        justifyContent: "center"
-        
-    },
-    textLoginButton:{
-        color: "#FFFFFF",
-        fontSize: 18,
     }
-
-
 })
 
-export default Styles;
+export default RegisterStyles;
