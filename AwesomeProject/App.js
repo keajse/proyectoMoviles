@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/auth/screens/login/LoginScreen';
 import HomeScreen from './src/auth/screens/home/HomeScreen';
 import RegisterScreen from './src/auth/screens/register/RegisterScreen';
+import ApartmentsScreen from './src/auth/screens/apartments/ApartmentsScreen';
 
 
 const Stack = createStackNavigator(); //Incializa la navegación.
@@ -13,9 +14,10 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
         <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: false}} />
+        <Stack.Screen name="Apartments" component={ApartmentsScreen} options={{headerShown: false}} />
        
 
       </Stack.Navigator>

@@ -4,30 +4,23 @@ import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../login/LoginStyles';
 import Colors from '../../../../shared/color/Colors'
 
-const HomeScreen = ({navigation}) => {
+const ApartmentsScreen = ({navigation}) => {
 
-  const goToLogin =() => {
-    navigation.navigate('Login');
-  }
-
-  const goToRegister =() => {
-    navigation.navigate('Register');
-  }
+  
 
   return <View style={Styles.container}>
     <StatusBar backgroundColor={Colors.primaryColor}></StatusBar>
 
     <LinearGradient colors={[Colors.primaryColor, Colors.secondaryColor]} style={Styles.icontainer}>
-      <Image source={require('../login/img/bird.png')} />
-      <Text style={Styles.title}>Paz y bien</Text>      
+      <Image source={require('../apartments/img/japon.jpg')} />
+      <Text style={Styles.title}>Welcome</Text>      
     </LinearGradient>   
     
-    <Button title="Go to login" onPress={()=>goToLogin()}></Button> 
-    <Button title="Go to Register" onPress={()=>goToRegister()}></Button> 
+    
 
   </View >
 }
 
 
 
-export default HomeScreen;
+export default ApartmentsScreen;
