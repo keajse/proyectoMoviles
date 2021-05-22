@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, StatusBar, TextInput, Text, TouchableHighlight, Alert } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from './LoginStyles';
-import Colors from '../../../../shared/color/Colors';
+import Colors from '../../../shared/color/Colors';
 
 const LoginScreen = ({navigation}) => {
 
@@ -33,6 +33,8 @@ const LoginScreen = ({navigation}) => {
       <Text>{email}</Text>
 
       <TextInput defaultValue={password} inlineImageLeft='outline_vpn_key_black_18' inlineImagePadding={20} style={Styles.inputDataUser} placeholder="Password" secureTextEntry={true} onChangeText={(text) => { setPassword(text) }}></TextInput>
+
+      <Text></Text>
 
       <TouchableHighlight onPress={() => validateLogin()}>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, StatusBar, TextInput, Text, Button, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../login/LoginStyles';
-import Colors from '../../../../shared/color/Colors'
+import Colors from '../../../shared/color/Colors'
 
 const RegisterScreen = () => {
 
