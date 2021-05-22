@@ -2,31 +2,29 @@ import React, { useEffect } from 'react';
 import { View, Text, Flatlist } from 'react-native';
 
 
-const ListUsersScreen = () => {
 
-    const[ users, setUsers]= useState("");
+const ListUsers = () => {
+
+    //const[ users, setUsers]= useState("");
 
     const getUsers = async () => {
         const response = await fetch('https://reqres.in/api/users?page=2');
 
         const jsonResponse = await response.json();
-        setUsers(jsonResponse.data);
-        //console.log(jsonResponse);
+        //setUsers(jsonResponse.data);
+        console.log(jsonResponse.data);
     }
 
-    const Item = () => {
+    /*const Item = () => {
         return <Text>Item</Text>
-    }
+    }*/
 
     useEffect(() => {
         getUsers();
     }, []);
-
     return <View>
-        <Flatlist data={users} renderItems={() => <Item></Item>}>
-
-        </Flatlist>
+        <Text>Gracias Dios</Text>
     </View>
 }
 
-export default ListUsersScreen;
+export default ListUsers;
