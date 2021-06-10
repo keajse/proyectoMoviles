@@ -10,7 +10,8 @@ const ListUsers = () => {
     const [users, setUsers] = useState([]);
 
     const getUsers = async () => {
-        const response = await fetch('https://reqres.in/api/users?page=2');
+        //const response = await fetch('https://reqres.in/api/users?page=2');       
+        const response = await fetch('https://lauraserranoapi.herokuapp.com/reserva/consulta')
 
         const jsonResponse = await response.json();
         setUsers(jsonResponse.data);
@@ -20,12 +21,13 @@ const ListUsers = () => {
     const Item = (props) => {
         console.log(props);
 
-        user = props.user;
-        return <Text>{user.first_name}</Text>
+        /*user = props.user;
+        //return <Text>{user.first_name}</Text>
+        return <Text>{user.nombre}</Text>*/
 
-        //user = props.user;
-        //position = props.position;
-        //return <Text>Item</Text>
+        user = props.user;
+        position = props.position;
+        return <Text>Item</Text>
     }
 
     useEffect(() => {

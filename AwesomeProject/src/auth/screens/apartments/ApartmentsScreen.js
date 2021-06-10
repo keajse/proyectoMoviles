@@ -5,7 +5,6 @@ import Styles from '../login/LoginStyles';
 import Colors from '../../../shared/color/Colors'
 
 const ApartmentsScreen = ({navigation}) => {
-
   
 
   return <View style={Styles.container}>
@@ -15,8 +14,7 @@ const ApartmentsScreen = ({navigation}) => {
       <Image source={require('../apartments/img/japon.jpg')} />
       <Text style={Styles.title}>Welcome</Text>      
     </LinearGradient>   
-    
-    
+        
 
   </View >
 }

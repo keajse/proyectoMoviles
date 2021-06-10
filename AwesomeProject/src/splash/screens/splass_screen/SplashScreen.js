@@ -10,7 +10,7 @@ const SplashScreen = ({navigation}) => {
 
     const waitingTimeSplash = () => {
         setTimeout(() =>{
-            navigation.navigate('ListUsers')
+            navigation.navigate('Login')
         }, 4000);
     }
 

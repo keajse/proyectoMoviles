@@ -20,6 +20,10 @@ const LoginScreen = ({navigation}) => {
     }
   }
 
+  const register =()=>{
+    navigation.navigate("Register")
+  }
+
   return <View style={Styles.container}>
     <StatusBar backgroundColor={Colors.primaryColor}></StatusBar>
     <LinearGradient colors={[Colors.primaryColor, Colors.secondaryColor]} style={Styles.icontainer}>
@@ -40,6 +44,14 @@ const LoginScreen = ({navigation}) => {
 
         <LinearGradient style={Styles.loginButton} colors={[Colors.primaryColor, Colors.secondaryColor]}>
           <Text style={Styles.textLoginButton}>Login</Text>
+        </LinearGradient>
+
+      </TouchableHighlight>
+
+      <TouchableHighlight onPress={() => register()}>
+
+        <LinearGradient style={Styles.loginButton} colors={[Colors.primaryColor, Colors.secondaryColor]}>
+          <Text style={Styles.textLoginButton}>Registrarse</Text>
         </LinearGradient>
 
       </TouchableHighlight>
