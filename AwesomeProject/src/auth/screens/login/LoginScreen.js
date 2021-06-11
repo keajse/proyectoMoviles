@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { View, Image, StatusBar, TextInput, Text, TouchableHighlight, Alert } from 'react-native';
+import { View, Image, StatusBar, TextInput, Text, TouchableHighlight, Alert, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from './LoginStyles';
 import Colors from '../../../shared/color/Colors';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const validateLogin = () => {
     if (email === "" || password === "") {
       Alert.alert("Todos los campos deben estar llenos");
@@ -16,15 +16,27 @@ const LoginScreen = ({navigation}) => {
     else {
       setEmail("");
       setPassword("");
-      navigation.navigate("Apartments")
+      navigation.navigate("Reservas")
     }
   }
 
-  const register =()=>{
+  const register = () => {
     navigation.navigate("Register")
   }
 
-  return <View style={Styles.container}>
+  const consultar = () => {
+    navigation.navigate("ListUsers")
+  }
+
+  const getReserva = async () => {
+    const response = await fetch('https://lauraserranoapi.herokuapp.com/reserva/consulta');
+
+    const responseJson = await response.json();
+    console.log(responseJson)
+
+  }
+
+  return <ScrollView style={Styles.container}>
     <StatusBar backgroundColor={Colors.primaryColor}></StatusBar>
     <LinearGradient colors={[Colors.primaryColor, Colors.secondaryColor]} style={Styles.icontainer}>
       <Image source={require('./img/bird.png')} />
@@ -56,9 +68,17 @@ const LoginScreen = ({navigation}) => {
 
       </TouchableHighlight>
 
+      <TouchableHighlight onPress={() => consultar()}>
+
+        <LinearGradient style={Styles.loginButton} colors={[Colors.primaryColor, Colors.secondaryColor]}>
+          <Text style={Styles.textLoginButton}>Consultar</Text>
+        </LinearGradient>
+
+      </TouchableHighlight>
+
     </View>
 
-  </View >
+  </ScrollView >
 }
 
 

@@ -1,42 +1,59 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import ListUsersStyles from './ListUsersStyles';
+import CardComponent from './components/CardComponent';
 
 
 
-const ListUsers = () => {
+const ListUserScreen = ({navigation}) => {
 
-    const [users, setUsers] = useState([]);
+    const [reserva, setReservas] = useState("");
 
-    const getUsers = async () => {
-        //const response = await fetch('https://reqres.in/api/users?page=2');       
-        const response = await fetch('https://lauraserranoapi.herokuapp.com/reserva/consulta')
-
-        const jsonResponse = await response.json();
-        setUsers(jsonResponse.data);
-        //console.log(jsonResponse.data);
+    const getReservas = async () => {
+        const response = await fetch('https://lauraserranoapi.herokuapp.com/reserva/consulta');
+        const responseJson = await response.json();
+        console.log(responseJson);
+        
+        setReservas(responseJson.data);
     }
 
-    const Item = (props) => {
-        console.log(props);
-
-        /*user = props.user;
-        //return <Text>{user.first_name}</Text>
-        return <Text>{user.nombre}</Text>*/
-
-        user = props.user;
-        position = props.position;
-        return <Text>Item</Text>
+    const reservaInfo=(reserva)=>{
+        //Alert.alert("Paz y bien " + nombre);
+        navigation.navigate("detalle",{
+            reserva: reserva
+        });
     }
 
-    useEffect(() => {
-        getUsers();
+    /*const DATA = [
+        {
+            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+            title: 'First Item',
+        },
+        {
+            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+            title: 'Second Item',
+        },
+        {
+            id: '58694a0f-3da1-471f-bd96-145571e29d72',
+            title: 'Third Item',
+        },
+    ];*/
+
+    useEffect(()=>{
+        getReservas();
     }, []);
 
-    return <View style={ListUsersStyles.container}>
-        <FlatList data={users} renderItem={({item, index}) => <Item user={item} position={index}></Item>}></FlatList>
-    </View>
+    return <ScrollView>
+        <FlatList
+            data={reserva}
+            renderItem={({ item }) => <TouchableOpacity onPress={() =>reservaInfo(item)}>
+                <CardComponent data={item}></CardComponent>
+            </TouchableOpacity> }>
+
+
+        </FlatList>
+    </ScrollView>
 }
 
-export default ListUsers;
+export default ListUserScreen;
