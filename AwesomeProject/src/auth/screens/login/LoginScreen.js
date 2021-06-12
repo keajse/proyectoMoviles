@@ -14,9 +14,12 @@ const LoginScreen = ({ navigation }) => {
       Alert.alert("Todos los campos deben estar llenos");
     }
     else {
+
+      navigation.navigate("Reservas", {
+        email: email
+      });
       setEmail("");
       setPassword("");
-      navigation.navigate("Reservas")
     }
   }
 

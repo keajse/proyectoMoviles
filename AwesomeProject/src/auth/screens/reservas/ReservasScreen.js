@@ -4,7 +4,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../reservas/ReservasStyle';
 import Colors from '../../../shared/color/Colors'
 
-const ReservasScreen = ({navigation}) => {
+const ReservasScreen = ({route, navigation}) => {
+
+    console.log(route.params)
     
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");

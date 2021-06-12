@@ -12,7 +12,7 @@ const ApartmentsScreen = ({navigation}) => {
     <StatusBar backgroundColor={Colors.primaryColor}></StatusBar>
 
     <LinearGradient colors={[Colors.primaryColor, Colors.secondaryColor]} style={Styles.icontainer}>
-      <Image source={require('../apartments/img/japon.jpg')} />
+      <Image source={require('../apartments/img/japon.jpg')} style={{ width: 100, height: 100 }} />
       <Text style={Styles.title}>Welcome</Text>      
     </LinearGradient>      
         
